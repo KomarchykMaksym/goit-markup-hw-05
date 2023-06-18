@@ -501,13 +501,35 @@ body {
   justify-content: space-between;
   flex-basis: calc((100% - 30px) / 3);
 }
+.overlay-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 18px;
+  line-height: 1.56;
+  color: var(--secondary-color);
+  background-color: rgba(33, 150, 243, 0.9);
+  padding: 63px 24px;
+  height: 100%;
+  transform: translateY(100%);
+  overflow: auto;
+  transition: transform 250ms var(--time-distribution-function);
+}
+.overlay {
+  position: relative;
+  overflow: hidden;
+}
 .gallery-link {
   display: inline-block;
   padding-bottom: 20px;
   transition: box-shadow 250ms var(--time-distribution-function);
 }
-.gallery-link:hover,
-.gallery-link:focus {
+.gallery-link:hover .overlay-text,
+.gallery-link:focus .overlay-text {
+  transform: translateY(0);
+}
+.gallery-link:focus,
+.gallery-link:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
